@@ -42,7 +42,6 @@ defmodule ElixirVue.MixProject do
       {:phoenix_live_reload, "~> 1.2", only: :dev},
       {:phoenix_live_view, "~> 1.0.1"},
       {:floki, ">= 0.30.0", only: :test},
-      {:esbuild, "~> 0.7", runtime: Mix.env() == :dev},
       {:tailwind, "~> 0.2.0", runtime: Mix.env() == :dev},
       {:finch, "~> 0.13"},
       {:gettext, "~> 0.20"},
@@ -70,12 +69,12 @@ defmodule ElixirVue.MixProject do
   defp aliases do
     [
       "ecto.reset": ecto_reset(Mix.env()),
-      setup: ["deps.get", "assets.setup", "assets.build"],
-      "assets.setup": ["tailwind.install --if-missing", "esbuild.install --if-missing"],
-      "assets.build": ["tailwind default", "esbuild default"],
+      setup: ["deps.get", "assets.setup", "assets.build", "cmd --cd assets npm install"],
+      "assets.setup": ["tailwind.install --if-missing"],
+      "assets.build": ["tailwind default"],
       "assets.deploy": [
         "tailwind default --minify",
-        "esbuild default --minify",
+        "cmd --cd assets node build.js --deploy",
         "phx.digest"
       ],
       "copy.static.assets": [

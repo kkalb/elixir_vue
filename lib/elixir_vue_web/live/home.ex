@@ -16,6 +16,8 @@ defmodule ElixirVueWeb.Live.Home do
     ~H"""
     <div class="h-full w-full">
       <.header text="Elixir Vue"></.header>
+      <section id="app_vue">
+    </section>
       <.footer />
     </div>
     """
