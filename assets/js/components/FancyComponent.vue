@@ -1,60 +1,82 @@
 <template>
-    <div class="card">
-      <h2>{{ title }}</h2>
-      <p>{{ description }}</p>
-      <button @click="toggleInfo">{{ showMore ? 'Show Less' : 'Show More' }}</button>
-      <div v-if="showMore">
-        <p>Here's some extra content for you to enjoy!</p>
-      </div>
+  <div class="starry-sky">
+    <div class="stars">
+      <div v-for="i in 200" :key="i" class="star" :style="getStarPosition()"></div>
     </div>
-  </template>
-  
-  <script>
-  import { ref } from 'vue'
-  
-  export default {
-    name: 'FancyComponent',
-    data() {
+    <div class="moon"></div>
+  </div>
+</template>
+
+<script>
+export default {
+  methods: {
+    getStarPosition() {
+      // Random position for each star to make it look natural
+      const top = Math.random() * 100;
+      const left = Math.random() * 100;
+      const animationDuration = Math.random() * (2 - 1) + 1 + 's'; // Random duration for twinkling animation
+
       return {
-        title: 'Fancy Vue 3 Component',
-        description: 'This is a test component to check Vue 3 functionality.',
-        showMore: false
-      }
-    },
-    methods: {
-      toggleInfo() {
-        this.showMore = !this.showMore
-      }
+        top: `${top}vh`,
+        left: `${left}vw`,
+        animationDuration
+      };
     }
   }
-  </script>
-  
-  <style scoped>
-  .card {
-    background-color: #f8f9fa;
-    border: 1px solid #dee2e6;
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
-    width: 300px;
-    margin: 20px auto;
+};
+</script>
+
+<style scoped>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  overflow: hidden;
+  background-color: #001d36;
+}
+
+.starry-sky {
+  position: relative;
+  height: 100%;
+}
+
+.stars {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background-color: white;
+  border-radius: 50%;
+  opacity: 0;
+  animation: twinkle 1s infinite alternate;
+}
+
+@keyframes twinkle {
+  0% {
+    opacity: 0.5;
   }
-  
-  h2 {
-    color: #007bff;
+  100% {
+    opacity: 1;
   }
-  
-  button {
-    margin-top: 10px;
-    padding: 10px;
-    background-color: #28a745;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #218838;
-  }
-  </style>
+}
+
+.moon {
+  position: absolute;
+  top: 15%;
+  left: 75%;
+  width: 100px;
+  height: 100px;
+  background-color: #f0e68c;
+  border-radius: 50%;
+  box-shadow: 0 0 50px rgba(255, 255, 255, 0.6);
+}
+</style>

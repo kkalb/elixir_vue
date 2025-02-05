@@ -78,8 +78,8 @@ defmodule ElixirVue.MixProject do
         "phx.digest"
       ],
       "copy.static.assets": [
-        "cmd rm -rf priv/static/images",
-        "cmd cp -r assets/images priv/static/images"
+        # "cmd rm -rf priv/static/images",
+        # "cmd cp -r assets/images priv/static/images"
       ],
       ps: ["copy.static.assets", "phx.server"]
     ]

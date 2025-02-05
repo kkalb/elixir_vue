@@ -2,7 +2,7 @@
 import "phoenix_html"
 import { Socket } from "phoenix"
 import { LiveSocket } from "phoenix_live_view"
-import topbar from "../vendor/topbar"
+import topbar from 'topbar';
 import Hooks from "./hooks";
 import FancyComponent from "./components/FancyComponent.vue";
 import { createApp } from 'vue'
@@ -29,10 +29,10 @@ liveSocket.connect()
 // >> liveSocket.disableLatencySim()
 window.liveSocket = liveSocket
 
-document.addEventListener("DOMContentLoaded", () => {
-  setTimeout(() => {
-    if (document.querySelector("#app_vue")) {
-      createApp(FancyComponent).mount("#app_vue");
-    }
-  }, 100); // Small delay to ensure LiveView renders first
-});
+document.addEventListener('DOMContentLoaded', () => {
+  console.log('Mounting Vue app...')
+  createApp(FancyComponent).mount('#app_vue')
+  console.log('Vue app mounted.')
+})
+
+

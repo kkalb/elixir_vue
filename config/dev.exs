@@ -15,7 +15,7 @@ config :elixir_vue, ElixirVueWeb.Endpoint,
   debug_errors: true,
   secret_key_base: "KsckHoEXT123s67ThF+iLlMlHfaLgWvVeYGHPacLq8qAZMEE579sBYBpr+nc6U3B",
   watchers: [
-    node: ["node_modules/vite/bin/vite.js", "dev", cd: Path.expand("../assets", __DIR__)],
+    npm: ["run", "dev", cd: Path.expand("../assets", __DIR__)],
     tailwind: {Tailwind, :install_and_run, [:default, ~w(--watch)]}
   ]
 
