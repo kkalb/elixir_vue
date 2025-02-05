@@ -22,11 +22,10 @@ config :elixir_vue, ElixirVueWeb.Endpoint,
     layout: false
   ],
   pubsub_server: ElixirVue.PubSub,
-  live_view: [signing_salt: "ni1y7ANM"]
+  live_view: [signing_salt: "ni1y7ANM"],
+  static_url: [scheme: "https", host: "localhost", port: 4000]
 
 config :elixir_vue, ElixirVueWeb.Gettext, default_locale: "en"
-config :elixir_vue, :github, api_key: ""
-
 config :elixir_vue, ecto_repos: [ElixirVue.Repo]
 
 # Configures Elixir's Logger

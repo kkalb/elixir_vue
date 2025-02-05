@@ -15,9 +15,9 @@ defmodule ElixirVueWeb.Live.Home do
   def render(assigns) do
     ~H"""
     <div class="h-full w-full">
-      <.header text="Elixir Vue"></.header>
-      <section id="app_vue">
-    </section>
+      <.header text="Elixir Vue 3"></.header>
+      <div class="h-full w-full" id="app_vue">
+      </div>
       <.footer />
     </div>
     """

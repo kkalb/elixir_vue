@@ -1,12 +1,16 @@
 {
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build"
+    },
     "devDependencies": {
-        "esbuild": "^0.12.25",
-        "esbuild-vue": "1.2.2"
+        "esbuild": "^0.12.25"
     },
     "dependencies": {
+        "@vitejs/plugin-vue": "^5.2.1",
         "phoenix": "file:../deps/phoenix",
         "phoenix_html": "file:../deps/phoenix_html",
         "phoenix_live_view": "file:../deps/phoenix_live_view",
-        "vue": "2"
+        "vue": "^3.5.13"
     }
 }

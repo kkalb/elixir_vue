@@ -1,12 +1,11 @@
 // Include phoenix_html to handle method=PUT/DELETE in forms and buttons.
 import "phoenix_html"
-// Establish Phoenix Socket and LiveView configuration.
 import { Socket } from "phoenix"
 import { LiveSocket } from "phoenix_live_view"
 import topbar from "../vendor/topbar"
 import Hooks from "./hooks";
-import Component from "./components/Component.vue";
-import Vue from "vue";
+import FancyComponent from "./components/FancyComponent.vue";
+import { createApp } from 'vue'
 
 let csrfToken = document.querySelector("meta[name='csrf-token']").getAttribute("content")
 
@@ -15,10 +14,6 @@ let liveSocket = new LiveSocket("/live", Socket, {
   params: { _csrf_token: csrfToken },
 });
 
-new Vue({
-  el: "#app_vue",
-  render: (h) => h(Component),
-});
 
 // Show progress bar on live navigation and form submits
 topbar.config({ barColors: { 0: "#29d" }, shadowColor: "rgba(0, 0, 0, .3)" })
@@ -34,3 +29,10 @@ liveSocket.connect()
 // >> liveSocket.disableLatencySim()
 window.liveSocket = liveSocket
 
+document.addEventListener("DOMContentLoaded", () => {
+  setTimeout(() => {
+    if (document.querySelector("#app_vue")) {
+      createApp(FancyComponent).mount("#app_vue");
+    }
+  }, 100); // Small delay to ensure LiveView renders first
+});

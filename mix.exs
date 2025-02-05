@@ -74,7 +74,7 @@ defmodule ElixirVue.MixProject do
       "assets.build": ["tailwind default"],
       "assets.deploy": [
         "tailwind default --minify",
-        "cmd --cd assets node build.js --deploy",
+        "cmd --cd assets npm run build",
         "phx.digest"
       ],
       "copy.static.assets": [
