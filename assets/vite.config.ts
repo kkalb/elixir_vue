@@ -23,6 +23,12 @@ export default defineConfig(({ command }: any) => {
             },
         },
         server: {
+            watch: {
+                usePolling: true,
+            },
+            hmr: {
+                host: 'localhost',
+            },
             port: 3000,
             proxy: {
                 '/assets': 'http://localhost:4000',

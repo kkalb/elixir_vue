@@ -37,6 +37,9 @@ config :logger, :console,
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
 
+config :phoenix_live_reload,
+  backend: :fs_poll
+
 # Configure tailwind (the version is required)
 config :tailwind,
   version: "3.3.2",

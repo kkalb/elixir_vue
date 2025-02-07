@@ -22,9 +22,11 @@ config :elixir_vue, ElixirVueWeb.Endpoint,
 config :elixir_vue, ElixirVueWeb.Endpoint,
   live_reload: [
     patterns: [
-      ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
-      ~r"priv/gettext/.*(po)$",
-      ~r"lib/elixir_vue_web/(controllers|live|components)/.*(ex|heex)$"
+      ~r{priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$},
+      ~r{priv/gettext/.*(po)$},
+      ~r{lib/elixir_vue_web/(controllers|live|components)/.*(ex|heex)$},
+      ~r{lib/elixir_vue_web/views/.*(ex)$},
+      ~r{lib/elixir_vue_web/templates/.*(eex)$}
     ]
   ]
 
