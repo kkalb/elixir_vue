@@ -14,7 +14,8 @@
 				"bradlc.vscode-tailwindcss",
 				"dbaeumer.vscode-eslint",
 				"cweijan.vscode-postgresql-client2",
-				"vue.volar"
+				"vue.volar",
+				"shd101wyy.markdown-preview-enhanced"
 			]
 		}
 	},
@@ -31,6 +32,6 @@
 	"postCreateCommand": "",
 	"remoteUser": "vscode",
 	"features": {
-		"ghcr.io/devcontainers/features/docker-in-docker:2": {},
+		"ghcr.io/devcontainers/features/docker-in-docker:2": {}
 	}
 }

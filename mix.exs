@@ -53,7 +53,7 @@ defmodule ElixirVue.MixProject do
       {:ecto_sql, "~> 3.0"},
       {:typed_ecto_schema, "~> 0.4.1", runtime: false},
       {:postgrex, ">= 0.0.0"},
-      {:styler, "~> 1.2.1", only: [:dev, :test], runtime: false}
+      {:styler, "~> 1.3.3", only: [:dev, :test], runtime: false}
     ]
   end
 
@@ -78,8 +78,8 @@ defmodule ElixirVue.MixProject do
         "phx.digest"
       ],
       "copy.static.assets": [
-        # "cmd rm -rf priv/static/images",
-        # "cmd cp -r assets/images priv/static/images"
+        "cmd rm -rf priv/static/images",
+        "cmd cp -r assets/images priv/static/images"
       ],
       ps: ["copy.static.assets", "phx.server"]
     ]
